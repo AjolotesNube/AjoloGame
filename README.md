@@ -109,15 +109,9 @@ Debes ver un `HTTP/1.0 200 OK` y las cabeceras del archivo.
 ---
 
 ## Mejoras sugeridas (opcional)
-- Añadir soporte por teclado (flechas / A-D / espacio) para jugar en PC.
-- Añadir un pequeño `README` en español (este archivo) — ya creado.
+- ~~Añadir soporte por teclado (flechas / A-D / espacio) para jugar en PC.~~
+- ~~Añadir un pequeño `README` en español (este archivo).~~
 - Añadir un script `start` en `package.json` si se usa Node para simplificar el arranque.
 
 ---
 
-Si quieres, puedo:
-- Añadir soporte de teclado ahora mismo y crear un commit/archivo con los cambios.
-- Generar un archivo `package.json` con un script `start` para `http-server`.
-- Detener el servidor que arrancamos en esta sesión.
-
-Indica qué prefieres y lo hago por ti.
