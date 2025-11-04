@@ -239,6 +239,59 @@ function setupMobileControls() {
     btnJump.addEventListener('mouseup', () => controls.jump = false);
 }
 
+// Controles de teclado para PC (flechas / WASD / espacio)
+function setupKeyboardControls() {
+    window.addEventListener('keydown', (e) => {
+        if (e.repeat) return; // evitar repeats automáticos
+
+        switch (e.key) {
+            case 'ArrowLeft':
+            case 'a':
+            case 'A':
+                controls.left = true;
+                break;
+            case 'ArrowRight':
+            case 'd':
+            case 'D':
+                controls.right = true;
+                break;
+            case 'ArrowUp':
+            case 'w':
+            case 'W':
+            case ' ': // espacio
+                // Para salto, activamos el flag; el gameLoop lo consumirá cuando el jugador esté en tierra
+                controls.jump = true;
+                break;
+            case 'Escape':
+                // Pausar / reanudar
+                gameIsPaused = !gameIsPaused;
+                break;
+        }
+    });
+
+    window.addEventListener('keyup', (e) => {
+        switch (e.key) {
+            case 'ArrowLeft':
+            case 'a':
+            case 'A':
+                controls.left = false;
+                break;
+            case 'ArrowRight':
+            case 'd':
+            case 'D':
+                controls.right = false;
+                break;
+            case 'ArrowUp':
+            case 'w':
+            case 'W':
+            case ' ': // espacio
+                // Quitamos el flag de salto al soltar la tecla
+                controls.jump = false;
+                break;
+        }
+    });
+}
+
 // Función para actualizar progreso de carga
 function updateLoadingProgress() {
     const progress = (imagesLoaded / totalImages) * 100;
@@ -248,6 +301,7 @@ function updateLoadingProgress() {
         setTimeout(() => {
             document.getElementById('loadingScreen').style.display = 'none';
             setupMobileControls();
+            setupKeyboardControls();
             gameLoop();
         }, 500);
     }
