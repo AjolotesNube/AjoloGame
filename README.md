@@ -1,5 +1,7 @@
 # Ajolotes en la nube — Cómo ejecutar el juego localmente
 
+![Vista previa del juego](images/game01.png)
+
 Este repositorio contiene un pequeño juego HTML5 localizado en `index.html` y varios recursos (imágenes) usados por el juego.
 
 ## Archivos importantes
